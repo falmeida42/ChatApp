@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "370921173747",
+    "project_id": "chatapp-98219",
+    "storage_bucket": "chatapp-98219.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370921173747:android:d4db63850a847546d27d86",
+        "android_client_info": {
+          "package_name": "com.falmeida.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370921173747-5nv6qp0cee3qpiaskbgsf02sikbitfim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAkSs8L_7jxrYfdnvHo3l-UfKovI8y0w4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370921173747-5nv6qp0cee3qpiaskbgsf02sikbitfim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370921173747:android:a893b3eb2144e895d27d86",
+        "android_client_info": {
+          "package_name": "com.falmeida.weatherap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370921173747-5nv6qp0cee3qpiaskbgsf02sikbitfim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAkSs8L_7jxrYfdnvHo3l-UfKovI8y0w4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370921173747-5nv6qp0cee3qpiaskbgsf02sikbitfim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
