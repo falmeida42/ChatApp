@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SignUp : AppCompatActivity() {
 
@@ -15,10 +17,13 @@ class SignUp : AppCompatActivity() {
     private lateinit var etPassword: EditText
     private lateinit var btnSignUp: Button
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var fireDb: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
+        supportActionBar?.hide()
 
         etName = findViewById(R.id.et_name)
         mAuth = FirebaseAuth.getInstance()
@@ -27,18 +32,21 @@ class SignUp : AppCompatActivity() {
         btnSignUp = findViewById(R.id.btn_signUp)
 
         btnSignUp.setOnClickListener {
+            val name = etName.text.toString()
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
 
-            signUp(email, password)
+            signUp(name, email, password)
         }
     }
 
-    private fun signUp(email: String, password: String) {
+    private fun signUp(name: String, email: String, password: String) {
         //User Logic
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+
+                    addUserToDatabase(name, email, mAuth.currentUser?.uid)
                     val intent = Intent(this@SignUp, MainActivity::class.java)
                     startActivity(intent)
                 } else {
@@ -47,5 +55,10 @@ class SignUp : AppCompatActivity() {
             }
     }
 
+    private fun addUserToDatabase(name: String, email: String, uid: String?) {
+        fireDb = FirebaseDatabase.getInstance().getReference()
+
+        fireDb.child("user").child(uid!!).setValue(User(name, email, uid))
+    }
 
 }
